@@ -93,7 +93,7 @@
 
         .app-container {
             width: 100%;
-            max-width: 950px; /* Expandido para dar espacio al chat */
+            max-width: 950px; 
             background-color: var(--surface-color);
             border-radius: 24px;
             padding: 30px;
@@ -305,15 +305,15 @@
 <body>
 
     <nav class="navbar">
-        <a href="#" class="nav-logo">⚡ Neurovolt</a>
+        <a href="index.html" class="nav-logo">⚡ Neurovolt</a>
         <div class="nav-links">
-            <a href="https://rodriguezvallesjosemiguel7-arch.github.io/neurovolt-landing/" target="_blank">Ver Infoproductos 📊</a>
+            <a href="landing.html">Ver Infoproductos 📊</a>
         </div>
     </nav>
 
     <div class="main-wrapper">
         <div class="app-container">
-            
+
             <div class="hero-side">
                 <div class="brand-logo">⚡</div>
                 <h1 class="brand-name">Neurovolt</h1>
@@ -323,7 +323,7 @@
                     La plataforma SaaS definitiva bajo la filosofía 80/20. Automatiza tus ecosistemas, accede a kits listos para copiar-pegar y potencia tu entorno de desarrollo utilizando nuestro asistente inteligente sin costes redundantes.
                 </p>
 
-                <a href="https://rodriguezvallesjosemiguel7-arch.github.io/neurovolt-landing/" class="cta-button">
+                <a href="landing.html" class="cta-button">
                     Explorar Catálogo de Infoproductos 🚀
                 </a>
             </div>
@@ -354,27 +354,22 @@
         const chatInput = document.getElementById('chatInput');
         const sendBtn = document.getElementById('sendBtn');
 
-        // Función para enviar mensajes e interactuar con la IA de DuckDuckGo (Sin Llaves de pago)
         async function sendMessage() {
             const text = chatInput.value.trim();
             if(!text) return;
 
-            // Renderizar mensaje del usuario
             appendMessage(text, 'user');
             chatInput.value = '';
 
-            // Efecto táctil haptico si es móvil compatible
             if (navigator.vibrate) navigator.vibrate(15);
 
-            // Mensaje temporal de carga de la IA
             const loadingDiv = appendMessage('Pensando en modo 80/20...', 'system');
 
             try {
-                // Endpoint Proxy gratuito para consultar DuckDuckGo AI de forma abierta
-                const response = await fetch(https://nexra.aryahcr.cc/api/chat/gpt?prompt=${encodeURIComponent(text)}&model=llama);
+                const response = await fetch(`https://nexra.aryahcr.cc/api/chat/gpt?prompt=${encodeURIComponent(text)}&model=llama`);
                 const data = await response.json();
-                
-                loadingDiv.remove(); // Quitar texto de carga
+
+                loadingDiv.remove();
 
                 if(data && data.gpt) {
                     appendMessage(data.gpt, 'system');
@@ -392,11 +387,10 @@
             msg.classList.add('message', sender);
             msg.innerText = text;
             chatMessages.appendChild(msg);
-            chatMessages.scrollTop = chatMessages.scrollHeight; // Auto scroll abajo
+            chatMessages.scrollTop = chatMessages.scrollHeight;
             return msg;
         }
 
-        // Listeners de eventos
         sendBtn.addEventListener('click', sendMessage);
         chatInput.addEventListener('keypress', (e) => {
             if(e.key === 'Enter') sendMessage();
