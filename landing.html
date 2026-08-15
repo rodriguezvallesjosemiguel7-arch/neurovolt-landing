@@ -63,6 +63,27 @@
             border-top-right-radius: 24px;
         }
 
+        /* Botón Volver */
+        .back-link {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        .back-link a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.2s;
+        }
+
+        .back-link a:hover {
+            color: var(--text-main);
+        }
+
         /* Header / Branding */
         .brand-logo {
             font-size: 42px;
@@ -186,6 +207,10 @@
 <body>
 
     <div class="app-container">
+        <div class="back-link">
+            <a href="index.html">← Volver al Asistente IA</a>
+        </div>
+
         <div class="brand-logo">⚡</div>
         <h1 class="brand-name">Neurovolt</h1>
         <div class="brand-tagline">AI · Energy · Intelligence</div>
@@ -240,11 +265,10 @@
     </div>
 
     <script>
-        // JS interactivo optimizado para entorno Mobile App (Haptic feedback simulado en clicks)
         document.querySelectorAll('.product-card').forEach(card => {
             card.addEventListener('click', () => {
                 if (navigator.vibrate) {
-                    navigator.vibrate(15); // Pequeña vibración táctil si entran desde celulares compatibles
+                    navigator.vibrate(15);
                 }
             });
         });
