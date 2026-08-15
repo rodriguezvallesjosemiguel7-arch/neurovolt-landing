@@ -262,46 +262,62 @@ const chatMessages = document.getElementById('chatMessages');
 const chatInput = document.getElementById('chatInput');
 const sendBtn = document.getElementById('sendBtn');
 
+// ⚠️ PEGA TU CLAVE DE GOOGLE AI STUDIO AQUÍ:
+const GEMINI_API_KEY = "AQ.Ab8RN6I89tpgU-lw8wfNSevqFjUtGAfzhoWB6QcopCAp6U79vw"; 
+
 function appendMessage(text, sender) {
-const msg = document.createElement('div');
-msg.classList.add('message', sender);
-msg.innerText = text;
-chatMessages.appendChild(msg);
-chatMessages.scrollTop = chatMessages.scrollHeight;
-return msg;
+    const msg = document.createElement('div');
+    msg.classList.add('message', sender);
+    msg.innerText = text;
+    chatMessages.appendChild(msg);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    return msg;
 }
 
 async function sendMessage() {
-const text = chatInput.value.trim();
-if(!text) return;
+    const text = chatInput.value.trim();
+    if(!text) return;
 
-appendMessage(text, 'user');
-chatInput.value = '';
+    appendMessage(text, 'user');
+    chatInput.value = '';
 
-if (navigator.vibrate) navigator.vibrate(15);
+    if (navigator.vibrate) navigator.vibrate(15);
 
-const loadingDiv = appendMessage('Pensando en modo 80/20...', 'system');
+    const loadingDiv = appendMessage('Pensando en modo 80/20...', 'system');
 
-try {
-const response = await fetch(`https://text.pollinations.ai/${encodeURIComponent(text)}`);
-const replyText = await response.text();
+    try {
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                contents: [{
+                    parts: [{
+                        text: "Eres el asistente inteligente de Neurovolt, enfocado en eficiencia 80/20. Responde de forma concisa y útil al usuario. Consulta: " + text
+                    }]
+                }]
+            })
+        });
 
-loadingDiv.remove();
+        const data = await response.json();
+        loadingDiv.remove();
 
-if(replyText) {
-appendMessage(replyText, 'system');
-} else {
-appendMessage('Error: No se obtuvo respuesta del servicio.', 'system');
-}
-} catch (error) {
-loadingDiv.remove();
-appendMessage('Error al conectar con la API de IA.', 'system');
-}
+        if (data.candidates && data.candidates[0]?.content?.parts[0]?.text) {
+            const replyText = data.candidates[0].content.parts[0].text;
+            appendMessage(replyText, 'system');
+        } else {
+            appendMessage('Error al obtener respuesta de la API. Verifica tu API Key.', 'system');
+        }
+    } catch (error) {
+        loadingDiv.remove();
+        appendMessage('Error de conexión con el servicio de IA.', 'system');
+    }
 }
 
 sendBtn.addEventListener('click', sendMessage);
 chatInput.addEventListener('keypress', (e) => {
-if(e.key === 'Enter') sendMessage();
+    if(e.key === 'Enter') sendMessage();
 });
 </script>
 
