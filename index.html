@@ -10,257 +10,261 @@
 <meta name="robots" content="index, follow">
 <style>
 :root {
---bg-color: #110726;
---surface-color: #1a0d36;
---accent-purple: #8b5cf6;
---accent-cyan: #3b82f6;
---text-main: #ffffff;
---text-muted: #a78bfa;
---text-dark: #6d6380;
+  --bg-color: #110726;
+  --surface-color: #1a0d36;
+  --accent-purple: #8b5cf6;
+  --accent-cyan: #3b82f6;
+  --text-main: #ffffff;
+  --text-muted: #a78bfa;
+  --text-dark: #6d6380;
 }
 
 *, *::before, *::after {
-box-sizing: border-box;
-margin: 0;
-padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-background-color: var(--bg-color);
-color: var(--text-main);
-min-height: 100vh;
-display: flex;
-flex-direction: column;
-overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
 }
 
 /* Navbar Minimalista */
 .navbar {
-width: 100%;
-background-color: rgba(26, 13, 54, 0.8);
-backdrop-filter: blur(10px);
-border-bottom: 1px solid rgba(139, 92, 246, 0.15);
-padding: 15px 25px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-position: fixed;
-top: 0;
-z-index: 100;
+  width: 100%;
+  background-color: rgba(26, 13, 54, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.15);
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 100;
 }
 
 .nav-logo {
-font-size: 22px;
-font-weight: 800;
-letter-spacing: 2px;
-text-transform: uppercase;
-text-decoration: none;
-color: var(--text-main);
-display: flex;
-align-items: center;
-gap: 5px;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .nav-links a {
-color: var(--text-muted);
-text-decoration: none;
-font-size: 14px;
-font-weight: bold;
-transition: color 0.3s;
-border: 1px solid rgba(139, 92, 246, 0.4);
-padding: 8px 16px;
-border-radius: 20px;
-background-color: rgba(139, 92, 246, 0.05);
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  transition: color 0.3s;
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  padding: 8px 16px;
+  border-radius: 20px;
+  background-color: rgba(139, 92, 246, 0.05);
 }
 
 .nav-links a:hover {
-color: var(--text-main);
-background-color: rgba(139, 92, 246, 0.2);
-border-color: var(--accent-purple);
+  color: var(--text-main);
+  background-color: rgba(139, 92, 246, 0.2);
+  border-color: var(--accent-purple);
 }
 
 /* Contenedor Principal Adaptado */
 .main-wrapper {
-margin-top: 90px;
-flex: 1;
-display: flex;
-justify-content: center;
-align-items: center;
-padding: 20px;
-width: 100%;
+  margin-top: 90px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
 }
 
 .app-container {
-width: 100%;
-max-width: 950px;
-background-color: var(--surface-color);
-border-radius: 24px;
-padding: 30px;
-display: flex;
-gap: 30px;
-box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-border: 1px solid rgba(139, 92, 246, 0.2);
+  width: 100%;
+  max-width: 950px;
+  background-color: var(--surface-color);
+  border-radius: 24px;
+  padding: 30px;
+  display: flex;
+  gap: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border: 1px solid rgba(139, 92, 246, 0.2);
 }
 
 .hero-side {
-flex: 1;
-display: flex;
-flex-direction: column;
-justify-content: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .brand-logo {
-font-size: 40px;
-margin-bottom: 10px;
+  font-size: 40px;
+  margin-bottom: 10px;
 }
 
 .brand-name {
-font-size: 32px;
-font-weight: 800;
-margin-bottom: 15px;
-background: linear-gradient(135deg, #ffffff, var(--accent-purple));
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #ffffff, var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-description {
-color: var(--text-muted);
-line-height: 1.6;
-font-size: 15px;
-margin-bottom: 25px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-size: 15px;
+  margin-bottom: 25px;
 }
 
 .cta-button {
-display: inline-block;
-padding: 12px 24px;
-background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
-color: white;
-text-decoration: none;
-border-radius: 12px;
-font-weight: bold;
-text-align: center;
-transition: transform 0.2s, opacity 0.2s;
+  display: inline-block;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: bold;
+  text-align: center;
+  transition: transform 0.2s, opacity 0.2s;
 }
 
 .cta-button:hover {
-opacity: 0.9;
-transform: translateY(-2px);
+  opacity: 0.9;
+  transform: translateY(-2px);
 }
 
 /* Estructura del Chat */
 .chat-side {
-flex: 1;
-display: flex;
-flex-direction: column;
-background-color: rgba(17, 7, 38, 0.6);
-border-radius: 16px;
-padding: 20px;
-height: 400px;
-border: 1px solid rgba(139, 92, 246, 0.15);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(17, 7, 38, 0.6);
+  border-radius: 16px;
+  padding: 20px;
+  height: 400px;
+  border: 1px solid rgba(139, 92, 246, 0.15);
 }
 
 .chat-messages {
-flex: 1;
-overflow-y: auto;
-display: flex;
-flex-direction: column;
-gap: 10px;
-padding-right: 5px;
-margin-bottom: 15px;
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 5px;
+  margin-bottom: 15px;
 }
 
 .message {
-padding: 10px 14px;
-border-radius: 12px;
-font-size: 14px;
-max-width: 85%;
-word-wrap: break-word;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  max-width: 85%;
+  word-wrap: break-word;
 }
 
 .message.user {
-background-color: var(--accent-purple);
-color: white;
-align-self: flex-end;
+  background-color: var(--accent-purple);
+  color: white;
+  align-self: flex-end;
 }
 
 .message.system {
-background-color: rgba(139, 92, 246, 0.15);
-color: var(--text-main);
-align-self: flex-start;
-border: 1px solid rgba(139, 92, 246, 0.3);
+  background-color: rgba(139, 92, 246, 0.15);
+  color: var(--text-main);
+  align-self: flex-start;
+  border: 1px solid rgba(139, 92, 246, 0.3);
 }
 
 .chat-input-container {
-display: flex;
-gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .chat-input-container input {
-flex: 1;
-background-color: var(--surface-color);
-border: 1px solid rgba(139, 92, 246, 0.3);
-border-radius: 10px;
-padding: 10px 15px;
-color: white;
-outline: none;
+  flex: 1;
+  background-color: var(--surface-color);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 10px;
+  padding: 10px 15px;
+  color: white;
+  outline: none;
 }
 
 .chat-input-container button {
-background-color: var(--accent-purple);
-border: none;
-color: white;
-padding: 10px 18px;
-border-radius: 10px;
-cursor: pointer;
-font-weight: bold;
+  background-color: var(--accent-purple);
+  border: none;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 @media (max-width: 768px) {
-.app-container {
-flex-direction: column;
-}
+  .app-container {
+    flex-direction: column;
+  }
 }
 </style>
 </head>
 <body>
 
 <nav class="navbar">
-<a href="index.html" class="nav-logo">⚡ Neurovolt</a>
-<div class="nav-links">
-<a href="landing.html">Ver Infoproductos 📊</a>
-</div>
+  <a href="index.html" class="nav-logo">⚡ Neurovolt</a>
+  <div class="nav-links">
+    <a href="landing.html">Ver Infoproductos 📊</a>
+  </div>
 </nav>
 
 <div class="main-wrapper">
-<div class="app-container">
-<div class="hero-side">
-<div class="brand-logo">⚡</div>
-<h1 class="brand-name">Neurovolt</h1>
-<p class="hero-description">
-La plataforma SaaS definitiva bajo la filosofía 80/20. Automatiza tus ecosistemas, accede a kits listos para copiar-pegar y potencia tu entorno de desarrollo utilizando nuestro asistente inteligente sin costes redundantes.
-</p>
-<a href="landing.html" class="cta-button">
-Explorar Catálogo de Infoproductos 🚀
-</a>
-</div>
+  <div class="app-container">
+    <div class="hero-side">
+      <div class="brand-logo">⚡</div>
+      <h1 class="brand-name">Neurovolt</h1>
+      <p class="hero-description">
+        La plataforma SaaS definitiva bajo la filosofía 80/20. Automatiza tus ecosistemas, accede a kits listos para copiar-pegar y potencia tu entorno de desarrollo utilizando nuestro asistente inteligente sin costes redundantes.
+      </p>
+      <a href="landing.html" class="cta-button">
+        Explorar Catálogo de Infoproductos 🚀
+      </a>
+    </div>
 
-<div class="chat-side">
-<div class="chat-messages" id="chatMessages">
-<div class="message system">¡Hola! Soy el asistente 80/20 de Neurovolt. ¿En qué te puedo ayudar hoy?</div>
-</div>
-<div class="chat-input-container">
-<input type="text" id="chatInput" placeholder="Escribe tu consulta...">
-<button id="sendBtn">Enviar</button>
-</div>
-</div>
-</div>
+    <div class="chat-side">
+      <div class="chat-messages" id="chatMessages">
+        <div class="message system">¡Hola! Soy el asistente 80/20 de Neurovolt. ¿En qué te puedo ayudar hoy?</div>
+      </div>
+      <div class="chat-input-container">
+        <input type="text" id="chatInput" placeholder="Escribe tu consulta...">
+        <button id="sendBtn">Enviar</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
 const chatMessages = document.getElementById('chatMessages');
 const chatInput = document.getElementById('chatInput');
 const sendBtn = document.getElementById('sendBtn');
+
+let conversationHistory = [
+    { role: 'system', content: 'Eres el asistente oficial de Neurovolt, una plataforma de alta eficiencia y filosofía 80/20. Ayudas a los usuarios respondiendo dudas sobre infoproductos, herramientas digitales y guías para automatización. Responde siempre en español, de forma clara, amable y concisa.' }
+];
 
 function appendMessage(text, sender) {
     const msg = document.createElement('div');
@@ -277,32 +281,38 @@ async function sendMessage() {
 
     appendMessage(text, 'user');
     chatInput.value = '';
+    conversationHistory.push({ role: 'user', content: text });
 
     if (navigator.vibrate) navigator.vibrate(15);
 
     const loadingDiv = appendMessage('Pensando en modo 80/20...', 'system');
 
     try {
-        // Motor público sin requerir API keys ni cuotas de pago
-        const response = await fetch('https://api.duckduckgo.com/?q=' + encodeURIComponent(text) + '&format=json');
-        const data = await response.json();
-        
-        loadingDiv.remove();
+        const response = await fetch('https://text.pollinations.ai/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                messages: conversationHistory,
+                model: 'openai',
+                seed: 42
+            })
+        });
 
-        let reply = data.AbstractText || data.Definition;
-        
-        if (!reply && data.RelatedTopics && data.RelatedTopics.length > 0) {
-            reply = data.RelatedTopics[0].Text;
-        }
+        if (!response.ok) throw new Error('Error al conectar');
+
+        const reply = await response.text();
+        loadingDiv.remove();
 
         if (reply) {
             appendMessage(reply, 'system');
+            conversationHistory.push({ role: 'assistant', content: reply });
         } else {
-            appendMessage(`Neurovolt AI (Modo 80/20): Entendido. Para consultas sobre "${text}", te recomiendo revisar nuestros kits en el Catálogo de Infoproductos.`, 'system');
+            appendMessage('Lo siento, no pude procesar tu mensaje en este momento.', 'system');
         }
     } catch (error) {
         loadingDiv.remove();
-        appendMessage('Neurovolt AI: Consulta recibida correctamente.', 'system');
+        const fallbackReply = `¡Hola! Como asistente de Neurovolt, puedo informarte sobre nuestras plantillas, automatización e infoproductos en la sección "Ver Infoproductos" del menú.`;
+        appendMessage(fallbackReply, 'system');
     }
 }
 
